@@ -16,6 +16,7 @@ Add the following to your .emacs:
     (defalias 'ack-same 'ack-and-a-half-same)
     (defalias 'ack-find-file 'ack-and-a-half-find-file)
     (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+    (defalias 'ack-with-args 'ack-and-a-half-with-args)
 
 This will load the `ack-and-a-half` functions, and create shorter
 aliases for them.

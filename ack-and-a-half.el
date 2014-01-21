@@ -291,6 +291,8 @@ This is intended to be used in `ack-and-a-half-root-directory-functions'."
   "Strings recently searched for with `ack-and-a-half'.")
 (defvar ack-and-a-half-regexp-history nil
   "Regular expressions recently searched for with `ack-and-a-half'.")
+(defvar ack-and-a-half-extra-args-history nil
+  "Extra args recents passed to ack with `ack-and-a-half-with-args'.")
 
 (defun ack-and-a-half-initial-contents-for-read ()
   (when (ack-and-a-half-use-region-p)
@@ -454,6 +456,17 @@ called interactively, it is determined by
 prompted, if `ack-and-a-half-prompt-for-directory' is set."
   (interactive (ack-and-a-half-interactive))
   (ack-and-a-half-run directory regexp pattern))
+
+(defun ack-and-a-half-with-args (pattern &optional regexp directory)
+  "Run ack with custom arguments.
+
+PATTERN, REGEXP, and DIRECTORY are interpreted the same way as in
+the `ack-and-a-half' function."
+  (interactive (ack-and-a-half-interactive))
+  (let ((args (read-string "extra args: "
+                           nil
+                           'ack-and-a-half-extra-args-history)))
+    (ack-and-a-half-run directory regexp pattern args)))
 
 ;;;###autoload
 (defun ack-and-a-half-same (pattern &optional regexp directory)
