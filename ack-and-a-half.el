@@ -314,7 +314,7 @@ This is intended to be used in `ack-and-a-half-root-directory-functions'."
                     (format "ack %s: " type))))
     (read-string prompt
                  (ack-and-a-half-initial-contents-for-read)
-                 (if regexp 'ack-regexp-history 'ack-literal-history)
+                 (if regexp 'ack-and-a-half-regexp-history 'ack-and-a-half-literal-history)
                  default)))
 
 (defun ack-and-a-half-read-dir ()
